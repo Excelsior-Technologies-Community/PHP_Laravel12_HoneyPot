@@ -1,5 +1,14 @@
 # PHP_Laravel12_HoneyPot
 
+<p align="center">
+<a href="#"><img src="https://img.shields.io/badge/Laravel-12-red" alt="Laravel Version"></a>
+<a href="#"><img src="https://img.shields.io/badge/PHP-8.2-blue" alt="PHP Version"></a>
+<a href="#"><img src="https://img.shields.io/badge/Spam%20Protection-Honeypot-green" alt="Honeypot"></a>
+<a href="#"><img src="https://img.shields.io/badge/Status-Active-success" alt="Project Status"></a>
+</p>
+
+---
+
 ## Overview
 
 This project demonstrates how to implement spam protection in Laravel 12 using:
