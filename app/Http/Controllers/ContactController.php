@@ -14,11 +14,14 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'message' => 'required|string',
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|max:2000',
         ]);
 
-        return back()->with('success', 'Form submitted successfully!');
+        return back()->with(
+            'success',
+            'Form submitted successfully!'
+        );
     }
 }
