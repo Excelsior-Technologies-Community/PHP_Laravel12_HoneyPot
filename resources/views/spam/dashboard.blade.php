@@ -2,9 +2,12 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Honeypot Security Dashboard</title>
 
@@ -15,157 +18,266 @@
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family:
+                'Segoe UI',
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+
             background: #f4f6f9;
+
             color: #1f2937;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background:
+                linear-gradient(135deg,
+                    #667eea,
+                    #764ba2);
+
             color: white;
+
             padding: 25px 40px;
         }
 
         .header h1 {
             margin: 0 0 5px;
+
             font-size: 28px;
         }
 
         .header p {
             margin: 0;
+
             opacity: 0.9;
         }
 
         .container {
-            max-width: 1250px;
+            max-width: 1350px;
+
             margin: 30px auto;
+
             padding: 0 20px;
         }
 
         .alert {
             padding: 13px 18px;
+
             border-radius: 8px;
+
             margin-bottom: 20px;
         }
 
         .success {
             background: #dcfce7;
+
             color: #166534;
         }
 
         .error {
             background: #fee2e2;
+
             color: #991b1b;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
             gap: 20px;
+
             margin-bottom: 30px;
         }
 
         .card {
             background: white;
+
             border-radius: 12px;
+
             padding: 22px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+            box-shadow:
+                0 5px 18px rgba(0, 0, 0, 0.08);
         }
 
         .card-title {
             color: #6b7280;
+
             font-size: 14px;
+
             margin-bottom: 10px;
         }
 
         .card-value {
             font-size: 30px;
+
             font-weight: 700;
         }
 
         .section {
             background: white;
+
             border-radius: 12px;
+
             padding: 25px;
+
             margin-bottom: 25px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+            box-shadow:
+                0 5px 18px rgba(0, 0, 0, 0.08);
         }
 
         .section h2 {
             margin-top: 0;
+
             margin-bottom: 20px;
+
             font-size: 20px;
         }
 
-        .search-form {
-            display: flex;
+        .filters {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1.5fr 1fr 1fr;
+
             gap: 10px;
-            margin-bottom: 20px;
+
+            margin-bottom: 15px;
         }
 
-        .search-form input {
-            flex: 1;
-            padding: 11px 14px;
-            border: 1px solid #d1d5db;
+        .filters input,
+        .filters select {
+
+            width: 100%;
+
+            padding: 11px 12px;
+
+            border:
+                1px solid #d1d5db;
+
             border-radius: 7px;
+
             font-size: 14px;
+
+            background: white;
+        }
+
+        .filter-buttons {
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 20px;
         }
 
         button,
         .btn {
+
             border: none;
+
             border-radius: 7px;
+
             padding: 10px 15px;
+
             cursor: pointer;
+
             text-decoration: none;
+
             font-size: 14px;
+
+            display: inline-block;
         }
 
         .btn-primary {
             background: #667eea;
+
             color: white;
         }
 
         .btn-danger {
             background: #dc2626;
+
             color: white;
         }
 
         .btn-success {
             background: #16a34a;
+
             color: white;
         }
 
         .btn-secondary {
             background: #6b7280;
+
+            color: white;
+        }
+
+        .btn-dark {
+            background: #374151;
+
+            color: white;
+        }
+
+        .btn-warning {
+            background: #d97706;
+
+            color: white;
+        }
+
+        .btn-info {
+            background: #0891b2;
+
             color: white;
         }
 
         table {
+
             width: 100%;
+
             border-collapse: collapse;
         }
 
         th,
         td {
+
             padding: 13px;
-            border-bottom: 1px solid #e5e7eb;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
             text-align: left;
+
             font-size: 13px;
+
             vertical-align: top;
         }
 
         th {
+
             background: #f9fafb;
+
             font-weight: 600;
         }
 
         .badge {
+
             display: inline-block;
+
             padding: 5px 9px;
+
             border-radius: 20px;
+
             font-size: 12px;
+
             background: #fee2e2;
+
             color: #991b1b;
         }
 
@@ -173,169 +285,362 @@
             display: inline;
         }
 
+        .action-buttons {
+
+            display: flex;
+
+            gap: 6px;
+
+            flex-wrap: wrap;
+        }
+
         .grid {
+
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
+
             gap: 25px;
         }
 
         .top-ip {
+
             display: flex;
-            justify-content: space-between;
+
+            justify-content:
+                space-between;
+
+            gap: 10px;
+
             padding: 11px 0;
-            border-bottom: 1px solid #e5e7eb;
+
+            border-bottom:
+                1px solid #e5e7eb;
         }
 
         .pagination {
+
             margin-top: 20px;
         }
 
         .pagination nav {
+
             display: flex;
-            justify-content: center;
+
+            justify-content:
+                center;
         }
 
         .pagination a,
         .pagination span {
+
             display: inline-block;
+
             padding: 8px 12px;
+
             margin: 2px;
-            border: 1px solid #ddd;
+
+            border:
+                1px solid #ddd;
+
             border-radius: 5px;
+
             text-decoration: none;
+
             color: #374151;
         }
 
-        .back-link {
-            display: inline-block;
-            margin-top: 10px;
+        .pagination .active span {
+
+            background: #667eea;
+
             color: white;
+
+            border-color: #667eea;
+        }
+
+        .back-link {
+
+            display: inline-block;
+
+            margin-top: 10px;
+
+            color: white;
+
             text-decoration: none;
+
             font-size: 14px;
         }
 
-        @media (max-width: 900px) {
+        .export-box {
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 20px;
+        }
+
+        .danger-zone {
+
+            border:
+                1px solid #fecaca;
+
+            background: #fff7f7;
+        }
+
+        .empty {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #6b7280;
+        }
+
+        .small-text {
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+        .blocked-search {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+        }
+
+        .blocked-search input {
+
+            flex: 1;
+
+            padding: 11px 14px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+        }
+
+        .sort-links {
+
+            margin-bottom: 15px;
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+        .sort-links a {
+
+            text-decoration: none;
+
+            padding: 7px 10px;
+
+            border-radius: 6px;
+
+            background: #f3f4f6;
+
+            color: #374151;
+
+            font-size: 12px;
+        }
+
+        @media (max-width: 1000px) {
+
             .cards {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .filters {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .cards {
+
+                grid-template-columns:
+                    1fr;
             }
 
             .grid {
-                grid-template-columns: 1fr;
-            }
-        }
 
-        @media (max-width: 600px) {
-            .cards {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
+            }
+
+            .filters {
+
+                grid-template-columns:
+                    1fr;
             }
 
             .header {
+
                 padding: 20px;
             }
 
             .container {
+
                 padding: 0 10px;
             }
 
             table {
+
                 display: block;
+
                 overflow-x: auto;
+
                 white-space: nowrap;
             }
+
+            .blocked-search {
+
+                flex-direction: column;
+            }
+
         }
     </style>
+
 </head>
 
 <body>
 
-<div class="header">
+    <div class="header">
 
-    <h1>🛡️ Honeypot Security Dashboard</h1>
+        <h1>
+            🛡️ Honeypot Security Dashboard
+        </h1>
 
-    <p>
-        Monitor spam attempts, suspicious IP addresses and blocked requests.
-    </p>
+        <p>
+            Monitor spam attempts, suspicious IP addresses
+            and blocked requests.
+        </p>
 
-    <a href="{{ url('/contact') }}" class="back-link">
-        ← Back to Contact Form
-    </a>
-
-</div>
-
-<div class="container">
-
-    @if(session('success'))
-        <div class="alert success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    @if(session('error'))
-        <div class="alert error">
-            {{ session('error') }}
-        </div>
-    @endif
-
-
-    {{-- Statistics Cards --}}
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="card-title">
-                Total Spam Attempts
-            </div>
-
-            <div class="card-value">
-                {{ $totalSpam }}
-            </div>
-        </div>
-
-
-        <div class="card">
-            <div class="card-title">
-                Today's Spam
-            </div>
-
-            <div class="card-value">
-                {{ $todaySpam }}
-            </div>
-        </div>
-
-
-        <div class="card">
-            <div class="card-title">
-                Unique Spam IPs
-            </div>
-
-            <div class="card-value">
-                {{ $uniqueIps }}
-            </div>
-        </div>
-
-
-        <div class="card">
-            <div class="card-title">
-                Blocked IPs
-            </div>
-
-            <div class="card-value">
-                {{ $blockedIps }}
-            </div>
-        </div>
+        <a
+            href="{{ url('/contact') }}"
+            class="back-link">
+            ← Back to Contact Form
+        </a>
 
     </div>
 
 
-    {{-- Top IPs + Recent Activity --}}
+    <div class="container">
 
-    <div class="grid">
+        {{-- Success Message --}}
 
-        <div class="section">
+        @if(session('success'))
 
-            <h2>🔥 Top Spam IP Addresses</h2>
+        <div class="alert success">
 
-            @forelse($topIps as $ip)
+            {{ session('success') }}
+
+        </div>
+
+        @endif
+
+
+        {{-- Error Message --}}
+
+        @if(session('error'))
+
+        <div class="alert error">
+
+            {{ session('error') }}
+
+        </div>
+
+        @endif
+
+
+        {{-- Statistics --}}
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-title">
+                    Total Spam Attempts
+                </div>
+
+                <div class="card-value">
+                    {{ $totalSpam }}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Today's Spam
+                </div>
+
+                <div class="card-value">
+                    {{ $todaySpam }}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Unique Spam IPs
+                </div>
+
+                <div class="card-value">
+                    {{ $uniqueIps }}
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-title">
+                    Blocked IPs
+                </div>
+
+                <div class="card-value">
+                    {{ $blockedIpsCount }}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        {{-- Top IPs + Recent Activity --}}
+
+        <div class="grid">
+
+            <div class="section">
+
+                <h2>
+                    🔥 Top Spam IP Addresses
+                </h2>
+
+                @forelse($topIps as $ip)
 
                 <div class="top-ip">
 
@@ -349,20 +654,24 @@
 
                 </div>
 
-            @empty
+                @empty
 
-                <p>No spam attempts recorded yet.</p>
+                <p>
+                    No spam attempts recorded yet.
+                </p>
 
-            @endforelse
+                @endforelse
 
-        </div>
+            </div>
 
 
-        <div class="section">
+            <div class="section">
 
-            <h2>🕒 Recent Spam Activity</h2>
+                <h2>
+                    🕒 Recent Spam Activity
+                </h2>
 
-            @forelse($recentAttempts as $attempt)
+                @forelse($recentAttempts as $attempt)
 
                 <div class="top-ip">
 
@@ -386,242 +695,618 @@
 
                 </div>
 
-            @empty
+                @empty
 
-                <p>No recent spam activity.</p>
+                <p>
+                    No recent spam activity.
+                </p>
 
-            @endforelse
+                @endforelse
+
+            </div>
 
         </div>
 
-    </div>
+
+        {{-- Spam History --}}
+
+        <div class="section">
+
+            <h2>
+                📋 Spam Attempt History
+            </h2>
 
 
-    {{-- Spam History --}}
+            {{-- Filters --}}
 
-    <div class="section">
+            <form
+                method="GET"
+                action="{{ route('spam.dashboard') }}">
 
-        <h2>📋 Spam Attempt History</h2>
+                <div class="filters">
 
-        <form method="GET"
-              action="{{ route('spam.dashboard') }}"
-              class="search-form">
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ $search }}"
+                        placeholder="Search IP, reason, user agent or route...">
 
-            <input
-                type="text"
-                name="search"
-                value="{{ $search }}"
-                placeholder="Search IP address, reason or user agent..."
-            >
 
-            <button class="btn btn-primary">
-                Search
-            </button>
+                    <select name="reason">
 
-            @if($search)
-                <a href="{{ route('spam.dashboard') }}"
-                   class="btn btn-secondary">
-                    Clear
+                        <option value="">
+                            All Reasons
+                        </option>
+
+                        @foreach($reasons as $item)
+
+                        <option
+                            value="{{ $item }}"
+                            @selected($reason===$item)>
+                            {{ $item }}
+                        </option>
+
+                        @endforeach
+
+                    </select>
+
+
+                    <input
+                        type="date"
+                        name="date_from"
+                        value="{{ $dateFrom }}">
+
+
+                    <input
+                        type="date"
+                        name="date_to"
+                        value="{{ $dateTo }}">
+
+                </div>
+
+
+                <div class="filter-buttons">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+                        🔎 Apply Filters
+                    </button>
+
+
+                    <a
+                        href="{{ route('spam.dashboard') }}"
+                        class="btn btn-secondary">
+                        ✖ Clear Filters
+                    </a>
+
+                </div>
+
+            </form>
+
+
+            {{-- Sorting --}}
+
+            <div class="sort-links">
+
+                <strong>
+                    Sort:
+                </strong>
+
+                <a
+                    href="{{ request()->fullUrlWithQuery([
+                    'sort' => 'id',
+                    'direction' => 'asc'
+                ]) }}">
+                    ID ↑
                 </a>
-            @endif
 
-        </form>
+                <a
+                    href="{{ request()->fullUrlWithQuery([
+                    'sort' => 'id',
+                    'direction' => 'desc'
+                ]) }}">
+                    ID ↓
+                </a>
 
+                <a
+                    href="{{ request()->fullUrlWithQuery([
+                    'sort' => 'ip_address',
+                    'direction' => 'asc'
+                ]) }}">
+                    IP ↑
+                </a>
 
-        <table>
+                <a
+                    href="{{ request()->fullUrlWithQuery([
+                    'sort' => 'ip_address',
+                    'direction' => 'desc'
+                ]) }}">
+                    IP ↓
+                </a>
 
-            <thead>
+                <a
+                    href="{{ request()->fullUrlWithQuery([
+                    'sort' => 'attempted_at',
+                    'direction' => 'asc'
+                ]) }}">
+                    Date ↑
+                </a>
 
-            <tr>
-                <th>#</th>
-                <th>IP Address</th>
-                <th>Reason</th>
-                <th>Route</th>
-                <th>User Agent</th>
-                <th>Date & Time</th>
-                <th>Action</th>
-            </tr>
+                <a
+                    href="{{ request()->fullUrlWithQuery([
+                    'sort' => 'attempted_at',
+                    'direction' => 'desc'
+                ]) }}">
+                    Date ↓
+                </a>
 
-            </thead>
-
-            <tbody>
-
-            @forelse($attempts as $attempt)
-
-                <tr>
-
-                    <td>
-                        {{ $attempt->id }}
-                    </td>
-
-                    <td>
-                        <strong>
-                            {{ $attempt->ip_address }}
-                        </strong>
-                    </td>
-
-                    <td>
-                        <span class="badge">
-                            {{ $attempt->reason }}
-                        </span>
-                    </td>
-
-                    <td>
-                        {{ $attempt->route }}
-                    </td>
-
-                    <td style="max-width:250px; white-space:normal;">
-                        {{ $attempt->user_agent ?: 'Unknown' }}
-                    </td>
-
-                    <td>
-                        {{ $attempt->attempted_at?->format('d M Y H:i:s') }}
-                    </td>
-
-                    <td>
-
-                        <form
-                            method="POST"
-                            action="{{ route('spam.block-ip') }}"
-                            class="ip-form"
-                        >
-
-                            @csrf
-
-                            <input
-                                type="hidden"
-                                name="ip_address"
-                                value="{{ $attempt->ip_address }}"
-                            >
-
-                            <button
-                                type="submit"
-                                class="btn btn-danger"
-                            >
-                                Block IP
-                            </button>
-
-                        </form>
-
-                    </td>
-
-                </tr>
-
-            @empty
-
-                <tr>
-
-                    <td colspan="7" style="text-align:center;">
-                        No spam attempts found.
-                    </td>
-
-                </tr>
-
-            @endforelse
-
-            </tbody>
-
-        </table>
+            </div>
 
 
-        <div class="pagination">
-            {{ $attempts->links() }}
+            {{-- Export Buttons --}}
+
+            <div class="export-box">
+
+                <a
+                    href="{{ route('spam.export.csv', request()->query()) }}"
+                    class="btn btn-success">
+                    📥 Export CSV
+                </a>
+
+
+                <a
+                    href="{{ route('spam.export.json', request()->query()) }}"
+                    class="btn btn-info">
+                    📄 Export JSON
+                </a>
+
+            </div>
+
+
+            {{-- Spam Table --}}
+
+            <div style="overflow-x:auto;">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                IP Address
+                            </th>
+
+                            <th>
+                                Reason
+                            </th>
+
+                            <th>
+                                Route
+                            </th>
+
+                            <th>
+                                Method
+                            </th>
+
+                            <th>
+                                User Agent
+                            </th>
+
+                            <th>
+                                Date & Time
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        @forelse($attempts as $attempt)
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ $attempt->id }}
+                                </strong>
+                            </td>
+
+
+                            <td>
+                                <strong>
+                                    {{ $attempt->ip_address }}
+                                </strong>
+                            </td>
+
+
+                            <td>
+
+                                <span class="badge">
+                                    {{ $attempt->reason }}
+                                </span>
+
+                            </td>
+
+
+                            <td>
+                                {{ $attempt->route }}
+                            </td>
+
+
+                            <td>
+                                {{ $attempt->request_method }}
+                            </td>
+
+
+                            <td
+                                style="
+                                max-width:250px;
+                                white-space:normal;
+                            ">
+                                {{ $attempt->user_agent ?: 'Unknown' }}
+                            </td>
+
+
+                            <td>
+
+                                {{ $attempt->attempted_at?->format(
+                                'd M Y H:i:s'
+                            ) }}
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="action-buttons">
+
+                                    {{-- Block IP --}}
+
+                                    <form
+                                        method="POST"
+                                        action="{{ route(
+                                        'spam.block-ip'
+                                    ) }}"
+                                        class="ip-form"
+                                        onsubmit="
+                                        return confirm(
+                                            'Block this IP address?'
+                                        );
+                                    ">
+
+                                        @csrf
+
+                                        <input
+                                            type="hidden"
+                                            name="ip_address"
+                                            value="{{ $attempt->ip_address }}">
+
+                                        <button
+                                            type="submit"
+                                            class="btn btn-danger">
+                                            🚫 Block
+                                        </button>
+
+                                    </form>
+
+
+                                    {{-- Delete Attempt --}}
+
+                                    <form
+                                        method="POST"
+                                        action="{{ route(
+                                        'spam.delete-attempt',
+                                        $attempt
+                                    ) }}"
+                                        onsubmit="
+                                        return confirm(
+                                            'Delete this spam attempt?'
+                                        );
+                                    ">
+
+                                        @csrf
+
+                                        @method('DELETE')
+
+                                        <button
+                                            type="submit"
+                                            class="btn btn-warning">
+                                            🗑 Delete
+                                        </button>
+
+                                    </form>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        @empty
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="empty">
+                                No spam attempts found.
+                            </td>
+
+                        </tr>
+
+                        @endforelse
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            {{-- Spam Pagination --}}
+
+            <div class="pagination">
+
+                {{ $attempts->links() }}
+
+            </div>
+
+
+            <div class="small-text">
+
+                Showing
+                {{ $attempts->firstItem() ?? 0 }}
+                -
+                {{ $attempts->lastItem() ?? 0 }}
+                of
+                {{ $attempts->total() }}
+                filtered spam attempts.
+                <br>
+                Maximum 5 records per page.
+
+            </div>
+
         </div>
 
-    </div>
 
+        {{-- Clear History --}}
 
-    {{-- Blocked IP Management --}}
+        <div class="section danger-zone">
 
-    <div class="section">
-
-        <h2>🚫 IP Blocking</h2>
-
-        <p>
-            Use the spam history above to block suspicious IP addresses.
-            Blocked IPs will be prevented from submitting the contact form.
-        </p>
-
-        @php
-            $blockedIpList = \App\Models\BlockedIp::latest('blocked_at')->get();
-        @endphp
-
-        @if($blockedIpList->count())
-
-            <table>
-
-                <thead>
-
-                <tr>
-                    <th>IP Address</th>
-                    <th>Reason</th>
-                    <th>Blocked At</th>
-                    <th>Action</th>
-                </tr>
-
-                </thead>
-
-                <tbody>
-
-                @foreach($blockedIpList as $blockedIp)
-
-                    <tr>
-
-                        <td>
-                            <strong>
-                                {{ $blockedIp->ip_address }}
-                            </strong>
-                        </td>
-
-                        <td>
-                            {{ $blockedIp->reason }}
-                        </td>
-
-                        <td>
-                            {{ $blockedIp->blocked_at?->format('d M Y H:i:s') }}
-                        </td>
-
-                        <td>
-
-                            <form
-                                method="POST"
-                                action="{{ route('spam.unblock-ip', $blockedIp) }}"
-                            >
-
-                                @csrf
-
-                                @method('DELETE')
-
-                                <button
-                                    type="submit"
-                                    class="btn btn-success"
-                                >
-                                    Unblock
-                                </button>
-
-                            </form>
-
-                        </td>
-
-                    </tr>
-
-                @endforeach
-
-                </tbody>
-
-            </table>
-
-        @else
+            <h2>
+                ⚠️ Danger Zone
+            </h2>
 
             <p>
-                No IP addresses are currently blocked.
+                Permanently delete all recorded spam attempts.
             </p>
 
-        @endif
+            <form
+                method="POST"
+                action="{{ route('spam.clear-history') }}"
+                onsubmit="
+                return confirm(
+                    'Are you sure you want to delete ALL spam history? This cannot be undone.'
+                );
+            ">
+
+                @csrf
+
+                @method('DELETE')
+
+                <button
+                    type="submit"
+                    class="btn btn-danger">
+                    🧹 Clear All Spam History
+                </button>
+
+            </form>
+
+        </div>
+
+
+        {{-- Blocked IP Management --}}
+
+        <div class="section">
+
+            <h2>
+                🚫 Blocked IP Management
+            </h2>
+
+            <p>
+                Blocked IP addresses cannot submit the contact form.
+            </p>
+
+
+            {{-- Blocked IP Search --}}
+
+            <form
+                method="GET"
+                action="{{ route('spam.dashboard') }}"
+                class="blocked-search">
+
+                <input
+                    type="text"
+                    name="blocked_search"
+                    value="{{ $blockedSearch }}"
+                    placeholder="Search blocked IP or reason...">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    🔎 Search
+                </button>
+
+
+                @if($blockedSearch)
+
+                <a
+                    href="{{ route('spam.dashboard') }}"
+                    class="btn btn-secondary">
+                    Clear
+                </a>
+
+                @endif
+
+            </form>
+
+
+            @if($blockedIpList->count())
+
+            <div style="overflow-x:auto;">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+
+                            <th>
+                                IP Address
+                            </th>
+
+                            <th>
+                                Reason
+                            </th>
+
+                            <th>
+                                Blocked At
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        @foreach($blockedIpList as $blockedIp)
+
+                        <tr>
+
+                            <td>
+                                {{ $blockedIp->id }}
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+                                    {{ $blockedIp->ip_address }}
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+                                {{ $blockedIp->reason }}
+                            </td>
+
+
+                            <td>
+
+                                {{ $blockedIp->blocked_at?->format(
+                                    'd M Y H:i:s'
+                                ) }}
+
+                            </td>
+
+
+                            <td>
+
+                                <form
+                                    method="POST"
+                                    action="{{ route(
+                                        'spam.unblock-ip',
+                                        $blockedIp
+                                    ) }}"
+                                    onsubmit="
+                                        return confirm(
+                                            'Unblock this IP address?'
+                                        );
+                                    ">
+
+                                    @csrf
+
+                                    @method('DELETE')
+
+                                    <button
+                                        type="submit"
+                                        class="btn btn-success">
+                                        🔓 Unblock
+                                    </button>
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+                        @endforeach
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            {{-- Blocked IP Pagination --}}
+
+            <div class="pagination">
+
+                {{ $blockedIpList->links() }}
+
+            </div>
+
+
+            <div class="small-text">
+
+                Showing
+                {{ $blockedIpList->firstItem() ?? 0 }}
+                -
+                {{ $blockedIpList->lastItem() ?? 0 }}
+                of
+                {{ $blockedIpList->total() }}
+                blocked IPs.
+                <br>
+                Maximum 5 blocked IPs per page.
+
+            </div>
+
+            @else
+
+            <div class="empty">
+
+                No IP addresses are currently blocked.
+
+            </div>
+
+            @endif
+
+        </div>
 
     </div>
-
-</div>
 
 </body>
 
