@@ -5,17 +5,31 @@ use App\Http\Controllers\SpamDashboardController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
+/*
+|--------------------------------------------------------------------------
+| Home
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Contact Form
+|--------------------------------------------------------------------------
+*/
 
-// Contact Form
+Route::get(
+    '/contact',
+    [ContactController::class, 'index']
+)->name('contact.form');
 
-Route::get('/contact', [ContactController::class, 'index'])
-    ->name('contact.form');
-
-Route::post('/contact', [ContactController::class, 'store'])
+Route::post(
+    '/contact',
+    [ContactController::class, 'store']
+)
     ->middleware([
         'blocked.ip',
         'minimum.time',
@@ -23,24 +37,79 @@ Route::post('/contact', [ContactController::class, 'store'])
     ])
     ->name('contact.store');
 
+/*
+|--------------------------------------------------------------------------
+| Spam Security Dashboard
+|--------------------------------------------------------------------------
+*/
 
-// Honeypot Security Dashboard
+Route::get(
+    '/spam-dashboard',
+    [SpamDashboardController::class, 'index']
+)->name('spam.dashboard');
 
-Route::get('/spam-dashboard', [SpamDashboardController::class, 'index'])
-    ->name('spam.dashboard');
+/*
+|--------------------------------------------------------------------------
+| Block IP
+|--------------------------------------------------------------------------
+*/
 
+Route::post(
+    '/spam-dashboard/block-ip',
+    [SpamDashboardController::class, 'blockIp']
+)->name('spam.block-ip');
 
-// Block IP
+/*
+|--------------------------------------------------------------------------
+| Unblock IP
+|--------------------------------------------------------------------------
+*/
 
-Route::post('/spam-dashboard/block-ip', [
-    SpamDashboardController::class,
-    'blockIp'
-])->name('spam.block-ip');
+Route::delete(
+    '/spam-dashboard/unblock-ip/{blockedIp}',
+    [SpamDashboardController::class, 'unblockIp']
+)->name('spam.unblock-ip');
 
+/*
+|--------------------------------------------------------------------------
+| Delete Individual Spam Attempt
+|--------------------------------------------------------------------------
+*/
 
-// Unblock IP
+Route::delete(
+    '/spam-dashboard/attempt/{spamAttempt}',
+    [SpamDashboardController::class, 'deleteAttempt']
+)->name('spam.delete-attempt');
 
-Route::delete('/spam-dashboard/unblock-ip/{blockedIp}', [
-    SpamDashboardController::class,
-    'unblockIp'
-])->name('spam.unblock-ip');
+/*
+|--------------------------------------------------------------------------
+| Clear Spam History
+|--------------------------------------------------------------------------
+*/
+
+Route::delete(
+    '/spam-dashboard/clear-history',
+    [SpamDashboardController::class, 'clearHistory']
+)->name('spam.clear-history');
+
+/*
+|--------------------------------------------------------------------------
+| Export CSV
+|--------------------------------------------------------------------------
+*/
+
+Route::get(
+    '/spam-dashboard/export/csv',
+    [SpamDashboardController::class, 'exportCsv']
+)->name('spam.export.csv');
+
+/*
+|--------------------------------------------------------------------------
+| Export JSON
+|--------------------------------------------------------------------------
+*/
+
+Route::get(
+    '/spam-dashboard/export/json',
+    [SpamDashboardController::class, 'exportJson']
+)->name('spam.export.json');
