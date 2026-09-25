@@ -31,6 +31,8 @@ class MinimumSubmissionTime
                             'attempted_at' => now(),
                         ]);
 
+                        app(\App\Services\SpamSecurityService::class)->evaluateAutoBlacklistPolicy($request->ip());
+
                         return redirect()
                             ->back()
                             ->with(

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlockedIp;
 use App\Models\SpamAttempt;
+use App\Services\SpamSecurityService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -418,5 +419,55 @@ class SpamDashboardController extends Controller
         }
 
         return $query;
+    }
+
+    /**
+     * Display Bot Attack Simulator view.
+     */
+    public function simulator(Request $request)
+    {
+        $recentSimulations = SpamAttempt::latest('attempted_at')->limit(5)->get();
+        return view('spam.simulator', compact('recentSimulations'));
+    }
+
+    /**
+     * Run Bot Attack simulation.
+     */
+    public function runSimulator(Request $request, SpamSecurityService $securityService)
+    {
+        $request->validate([
+            'scenario' => 'required|string|in:fast_submission,hidden_trap,bot_batch,blocked_ip',
+            'ip_address' => 'nullable|ip',
+            'count' => 'nullable|integer|min:1|max:10',
+        ]);
+
+        $scenario = $request->input('scenario');
+        $ip = $request->input('ip_address');
+        $count = (int)$request->input('count', 1);
+
+        $result = $securityService->runSimulation($scenario, $ip, $count);
+
+        if ($request->wantsJson()) {
+            return response()->json($result);
+        }
+
+        return redirect()->route('spam.simulator')->with('success', $result['message']);
+    }
+
+    /**
+     * Display Threat Analytics view.
+     */
+    public function analytics(SpamSecurityService $securityService)
+    {
+        $data = $securityService->getAnalyticsData();
+        return view('spam.analytics', compact('data'));
+    }
+
+    /**
+     * Return JSON data for Chart.js dashboard.
+     */
+    public function analyticsData(SpamSecurityService $securityService)
+    {
+        return response()->json($securityService->getAnalyticsData());
     }
 }

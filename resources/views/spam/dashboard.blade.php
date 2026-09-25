@@ -525,22 +525,18 @@
 <body>
 
     <div class="header">
-
-        <h1>
-            🛡️ Honeypot Security Dashboard
-        </h1>
-
-        <p>
-            Monitor spam attempts, suspicious IP addresses
-            and blocked requests.
-        </p>
-
-        <a
-            href="{{ url('/contact') }}"
-            class="back-link">
-            ← Back to Contact Form
-        </a>
-
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <div>
+                <h1 style="margin: 0 0 5px; font-size: 28px;">🛡️ Honeypot Security Dashboard</h1>
+                <p style="margin: 0; opacity: 0.9;">Monitor spam attempts, suspicious IP addresses, and auto-blacklisted bots.</p>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="{{ route('spam.dashboard') }}" style="padding: 9px 16px; background: #ffffff; color: #4f46e5; font-weight: bold; border-radius: 6px; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">🛡️ Overview</a>
+                <a href="{{ route('spam.simulator') }}" style="padding: 9px 16px; background: rgba(255,255,255,0.2); color: white; font-weight: 500; border-radius: 6px; text-decoration: none;">⚡ Bot Simulator</a>
+                <a href="{{ route('spam.analytics') }}" style="padding: 9px 16px; background: rgba(255,255,255,0.2); color: white; font-weight: 500; border-radius: 6px; text-decoration: none;">📊 Threat Analytics</a>
+                <a href="{{ url('/contact') }}" style="padding: 9px 16px; background: rgba(255,255,255,0.1); color: white; font-weight: 500; border-radius: 6px; text-decoration: none;">← Contact Form</a>
+            </div>
+        </div>
     </div>
 
 
