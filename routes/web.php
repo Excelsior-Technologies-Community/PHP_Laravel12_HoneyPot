@@ -113,3 +113,35 @@ Route::get(
     '/spam-dashboard/export/json',
     [SpamDashboardController::class, 'exportJson']
 )->name('spam.export.json');
+
+/*
+|--------------------------------------------------------------------------
+| Bot Attack Simulator
+|--------------------------------------------------------------------------
+*/
+
+Route::get(
+    '/spam-dashboard/simulator',
+    [SpamDashboardController::class, 'simulator']
+)->name('spam.simulator');
+
+Route::post(
+    '/spam-dashboard/simulator/run',
+    [SpamDashboardController::class, 'runSimulator']
+)->name('spam.simulator.run');
+
+/*
+|--------------------------------------------------------------------------
+| Anti-Spam Threat Analytics
+|--------------------------------------------------------------------------
+*/
+
+Route::get(
+    '/spam-dashboard/analytics',
+    [SpamDashboardController::class, 'analytics']
+)->name('spam.analytics');
+
+Route::get(
+    '/spam-dashboard/analytics/data',
+    [SpamDashboardController::class, 'analyticsData']
+)->name('spam.analytics.data');
